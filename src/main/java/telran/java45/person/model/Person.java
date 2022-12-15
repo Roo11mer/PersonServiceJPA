@@ -5,6 +5,8 @@ import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -17,7 +19,9 @@ import lombok.Setter;
 @Getter
 @EqualsAndHashCode(of = "id")
 @Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Person implements Serializable {
+
 	private static final long serialVersionUID = -800424324198884032L;
 	
 	@Id
@@ -27,5 +31,6 @@ public class Person implements Serializable {
 	LocalDate birthDate;
 	@Setter
 //	@Embedded
-	Address address; 
+	Address address;
+
 }

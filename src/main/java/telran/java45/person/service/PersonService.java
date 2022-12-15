@@ -16,11 +16,15 @@ public interface PersonService {
 	
 	PersonDto updatePersonAddress(Integer id, AddressDto addressDto);
 	
-	Iterable<PersonDto> findPersonByCity(String city);
+	Iterable<PersonDto> findPersonsByCity(String city);
 	
-	Iterable<PersonDto> findPersonByName(String name);
+	Iterable<PersonDto> findPersonsByName(String name);
 	
-	Iterable<PersonDto> findPersonBetweenAges(Integer minAge, Integer maxAge);
-	
-	Iterable<CityPopulationDto> getCityPopulation();
+	Iterable<CityPopulationDto> getCitiesPopulation();
+
+	Iterable<PersonDto> findPersonsBetweenAges(Integer minAge, Integer maxAge);	
+
+    Iterable<PersonDto> getChildren();
+    
+    Iterable<PersonDto> findEmployeeBySalary(Integer min, Integer max);
 }
