@@ -71,7 +71,7 @@ public class PersonServiceImpl implements PersonService, CommandLineRunner {
 	@Override
 	@Transactional(readOnly = true)
 	public Iterable<PersonDto> findPersonsByCity(String city) {
-		return personRepository.findPersonsByCity(city)
+		return personRepository.findByAddressCity(city)
 				.map(p -> modelMapper.map(p, getDtoClass(p)))
 				.collect(Collectors.toList());
 	}
@@ -79,7 +79,7 @@ public class PersonServiceImpl implements PersonService, CommandLineRunner {
 	@Override
 	@Transactional(readOnly = true)
 	public Iterable<PersonDto> findPersonsByName(String name) {
-		return personRepository.findPersonsByName(name)
+		return personRepository.findByName(name)
 				.map(p -> modelMapper.map(p, getDtoClass(p)))
 				.collect(Collectors.toList());
 	}
